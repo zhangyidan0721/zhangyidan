@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>注册界面</title>
+		<link rel="stylesheet" href="css/register.css" type="text/css" />
+		<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/lib/jquery.js"></script>
+		<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>
+		<script src="https://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>
+
+		<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+		
+		<style>
+			.error {
+				color: red;
+				font-size: 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="d1">
+			<div id="d1">
+				<form action="index.html" id="form01">
+					<table>
+						<tr>
+							<td colspan="2" style="font-weight: 900; color: blue;">注册:</td>
+						</tr>
+						<tr>
+							<td><label for="user" class="label">用户名:</label></td>
+							<td><input name="user" id="user" type="text" class="input" placeholder="请输入用户名" /></td>
+						</tr>
+						<tr>
+							<td><label for="pwd" class="label">输入密码:</label></td>
+							<td><input name="pwd" id="pwd" type="password" class="input" /></td>
+						</tr>
+						<tr>
+							<td><label for="pwd01" class="label">确认密码:</label></td>
+							<td><input name="pwd01" id="pwd01" type="password" class="input" /></td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<input type="submit" class="submit" id="submit" value="注册" />
+							</td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+		<script>
+			$(document).ready(function() {
+				// 在键盘按下并释放及提交后验证提交表单
+				$("#form01").validate({
+					rules: {
+						user: {
+							required: true,
+							minlength: 2
+						},
+						pwd: {
+							required: true,
+							minlength: 5
+						},
+						pwd01: {
+							required: true,
+							minlength: 5,
+							equalTo: "#pwd"
+						},
+					},
+					messages: {
+						user: {
+							required: "请输入用户名",
+						},
+						pwd: {
+							required: "请输入密码",
+							minlength: "密码长度不能小于 5 个字母"
+						},
+						pwd01: {
+							required: "请输入密码",
+							minlength: "密码长度不能小于 5 个字母",
+							equalTo: "两次密码输入不一致"
+						},
+					}
+				});
+				
+				$("#submit").click(function() {
+						var name = $("#user").val();
+						var pwd = $("#pwd").val();
+						$.cookie(name, pwd, {expires: 1,path: 'index.html'});
+					})
+			});
+		</script>
+	</body>
+
+</html>

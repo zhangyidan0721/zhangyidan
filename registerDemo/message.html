@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>信息展示页面</title>
+		<script src="https://cdn.staticfile.org/jquery/3.4.0/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+		<style>
+			body {
+				background-repeat: repeat;
+				background-image: url(img/pic.jpg);
+			}
+			
+			.zhuye {
+				background-image: url(img/pic02.jpg);
+				height: 280px;
+				width: 810px;
+				margin-left: 250px;
+				margin-top: 85px;
+			}
+			
+			.daohanglan {
+				background-color: white;
+				height: 40px;
+				width: 810px;
+				margin-left: 250px;
+				opacity: 0.6;
+			}
+			
+			.neirong {
+				height: 500px;
+				width: 810px;
+				margin-left: 250px;
+				margin-top: 20px;
+			}
+			
+			.jianjie {
+				background-color: white;
+				height: 300px;
+				width: 320px;
+				margin-right: 20px;
+				opacity: 0.6;
+			}
+			
+			.weibo {
+				background-color: white;
+				height: 500px;
+				width: 470px;
+				opacity: 0.6;
+			}
+			
+			.jianjie,
+			.weibo {
+				float: right;
+			}
+			
+			.image01 {
+				width: 100px;
+				height: 100px;
+				border-radius: 50%;
+				margin-left: 354px;
+				margin-top: 30px;
+			}
+			
+			p {
+				font-family: "黑体";
+				font-size: 18px;
+				text-align: center;
+				margin-top: 3px;
+				color: white;
+			}
+			
+			.dhl {
+				margin: 0px;
+			}
+			
+			.dhl01 {
+				float: left;
+				list-style: none;
+				margin-left: 200px;
+				margin-top: 8px;
+				font-weight: 700;
+			}
+			
+			.name01 {
+				list-style: none;
+				padding-top: 30px;
+				font-weight: 600;
+			}
+			
+			h3 {
+				margin-top: 0px;
+				margin-left: 130px;
+				font-weight: 400;
+				font-size: 15px;
+			}
+			
+			h2 {
+				margin-left: 120px;
+				font-weight: 600;
+				font-size: 25px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="zhuye">
+			<img class="image01" src="img/pic03.jpg">
+			<p>张怡丹同学</p>
+			<p>希望你见到我就会开心</p>
+		</div>
+		<div class="daohanglan">
+			<ul class="dhl">
+				<li class="dhl01">基本信息</i>
+				</li>
+				<li class="dhl01">好诗分享</li>
+			</ul>
+		</div>
+		<div class="neirong">
+			<div class="weibo">
+				<h2>面朝大海，春暖花开</h2></br>
+				<h3>
+				从明天起，做一个幸福的人</br>
+				喂马，劈柴，周游世界</br>
+				从明天起，关心粮食和蔬菜</br>
+				我有一所房子，面朝大海，春暖花开</br>
+				</br>
+				从明天起，和每一个亲人通信</br>
+				告诉他们我的幸福</br>
+				那幸福的闪电告诉我的</br>
+				我将告诉每一个人</br>
+				</br>
+				给每一条河每一座山取一个温暖的名字</br>
+				陌生人，我也为你祝福</br>
+				愿你有一个灿烂的前程</br>
+				愿你有情人终成眷属</br>
+				愿你在尘世获得幸福</br>
+				我只愿面朝大海，春暖花开</br>
+				</h3>
+			</div>
+			<div class="jianjie">
+				<ul class="name">
+					<li class="name01">姓名：张怡丹</li>
+					<li class="name01">别名：大头</li>
+					<li class="name01">生日：1999年7月21日</li>
+					<li class="name01" id="name"></li>
+					<li class="name01" id="pwd"></li>
+				</ul>
+			</div>
+		</div>
+
+		<script>
+			$(document).ready(function() {
+				tianJia();
+			})
+
+			function tianJia() {
+				document.getElementById('name').innerText="用户名：admin";
+				document.getElementById('pwd').innerText="密码："+$.cookie("admin");
+			}
+		</script>
+	</body>
+
+</html>
